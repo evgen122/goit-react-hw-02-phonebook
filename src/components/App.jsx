@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+
 import { Component } from 'react';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -42,13 +43,32 @@ export class App extends Component {
     }));
   };
 
+  addContact = newContact => {
+    console.log(newContact.name);
+    let flag = 0;
+
+    this.state.contacts.map(i => {
+      console.log(i.name);
+      if (i.name === newContact.name) {
+        return (flag = 1);
+      }
+    });
+    if (flag === 1) {
+      return console.log('ERROR', newContact.name, 'is already in contacts');
+    }
+    console.log(newContact);
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
+    }));
+  };
+
   render() {
     const contactsFilter = this.getContactsFilter();
 
     return (
       <div>
         <h1>Poneboock</h1>
-        <ContactForm />
+        <ContactForm onAdd={this.addContact} />
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} onChangeFilter={this.changeFilter} />
         <ContactList
