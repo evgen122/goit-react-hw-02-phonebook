@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import Notiflix from 'notiflix';
 
 import { Component } from 'react';
 import { ContactList } from './ContactList/ContactList';
@@ -53,7 +54,10 @@ export class App extends Component {
     });
 
     if (flag === 1) {
-      return console.log('ERROR', newContact.name, 'is already in contacts');
+      return Notiflix.Notify.warning(
+        `${newContact.name} 
+        is already in contacts`
+      );
     }
     this.setState(prevState => ({
       contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
