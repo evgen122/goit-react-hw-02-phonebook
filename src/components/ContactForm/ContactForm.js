@@ -1,6 +1,7 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
+import { ButAdd, StyledForm, StyledInput } from './ContactForm.styled';
 
 const phoneRegex = RegExp(/^\(?([0-9]{3})[-. ]?([0-9]{4})$/);
 
@@ -27,17 +28,17 @@ export const ContactForm = ({ onAdd }) => {
         actions.resetForm();
       }}
     >
-      <Form>
+      <StyledForm>
         <label htmlFor="name">Name</label>
-        <Field id="name" name="name" />
+        <StyledInput id="name" name="name" />
         <ErrorMessage name="name" />
 
         <label htmlFor="number">Number</label>
-        <Field id="number" type="number" name="number" />
+        <StyledInput id="number" type="number" name="number" />
         <ErrorMessage name="number" />
 
-        <button type="submit">Add contact</button>
-      </Form>
+        <ButAdd type="submit">Add contact</ButAdd>
+      </StyledForm>
     </Formik>
   );
 };

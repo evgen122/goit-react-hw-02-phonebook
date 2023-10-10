@@ -44,11 +44,11 @@ export class App extends Component {
   };
 
   addContact = newContact => {
-    console.log(newContact.name);
+    // console.log(newContact.name);
     let flag = 0;
 
     this.state.contacts.map(i => {
-      console.log(i.name);
+      // console.log(i.name);
       if (i.name === newContact.name) {
         return (flag = 1);
       }
@@ -56,7 +56,7 @@ export class App extends Component {
     if (flag === 1) {
       return console.log('ERROR', newContact.name, 'is already in contacts');
     }
-    console.log(newContact);
+    // console.log(newContact);
     this.setState(prevState => ({
       contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
     }));

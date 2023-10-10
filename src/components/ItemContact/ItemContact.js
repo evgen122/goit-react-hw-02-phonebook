@@ -1,15 +1,17 @@
+import { ButtonDelete } from './ItemContact.stuled';
+
 export const ItemContact = ({ item: { id, name, number }, onDelete }) => {
   return (
     <div>
       {name}: {number}
-      <button
+      <ButtonDelete
         onClick={() => {
           onDelete(id);
         }}
         type="button"
       >
         Delete
-      </button>
+      </ButtonDelete>
     </div>
   );
 };
