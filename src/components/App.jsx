@@ -37,26 +37,24 @@ export class App extends Component {
   };
 
   deleteItemContact = Id => {
-    // console.log('deleteItemContact', contId);
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(item => item.id !== Id),
     }));
   };
 
   addContact = newContact => {
-    // console.log(newContact.name);
     let flag = 0;
 
+    // eslint-disable-next-line array-callback-return
     this.state.contacts.map(i => {
-      // console.log(i.name);
       if (i.name === newContact.name) {
         return (flag = 1);
       }
     });
+
     if (flag === 1) {
       return console.log('ERROR', newContact.name, 'is already in contacts');
     }
-    // console.log(newContact);
     this.setState(prevState => ({
       contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
     }));
