@@ -1,4 +1,4 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
 import { ButAdd, StyledForm, StyledInput } from './ContactForm.styled';
