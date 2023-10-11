@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import React from 'react';
 import { ButAdd, StyledForm, StyledInput } from './ContactForm.styled';
 
-const phoneRegex = RegExp(/^\(?([0-9]{3})[-. ]?([0-9]{4})$/);
+const phoneRegex = RegExp(/^\(?([0-9]{3})[-. ]?([0-9]{2})[-. ]?([0-9]{2})$/);
 
 const formShema = Yup.object().shape({
   name: Yup.string()
@@ -34,7 +34,7 @@ export const ContactForm = ({ onAdd }) => {
         <ErrorMessage name="name" />
 
         <label htmlFor="number">Number</label>
-        <StyledInput id="number" type="number" name="number" />
+        <StyledInput id="number" name="number" placeholder="111-11-11" />
         <ErrorMessage name="number" />
 
         <ButAdd type="submit">Add contact</ButAdd>
